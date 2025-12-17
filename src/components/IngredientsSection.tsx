@@ -48,7 +48,7 @@ const IngredientsSection = () => {
     {
       emoji: '✨',
       title: 'Vanilie',
-      description: 'Esență de vanilie pentru un parfum delicios.',
+      description: 'Esență de vanilie pentru o aromă delicioasă.',
     },
   ];
 
