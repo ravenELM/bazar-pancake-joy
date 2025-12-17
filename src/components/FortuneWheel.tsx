@@ -9,14 +9,15 @@ interface WheelSegment {
   isWin: boolean;
 }
 
+// ~35% win rate: 3 wins out of 8 segments (37.5%)
 const segments: WheelSegment[] = [
   { label: 'Clătită gratis', emoji: '🎉', color: '#DC143C', isWin: true },
   { label: 'Mai ai o încercare', emoji: '🔁', color: '#D4A574', isWin: false },
   { label: 'Poate data viitoare', emoji: '😄', color: '#8B4513', isWin: false },
   { label: 'Extra topping', emoji: '🍓', color: '#E8C392', isWin: true },
   { label: 'Mulțumim că ai încercat', emoji: '❤️', color: '#C41E3A', isWin: false },
-  { label: 'Clătită gratis', emoji: '🎉', color: '#DC143C', isWin: true },
-  { label: 'Poate data viitoare', emoji: '😄', color: '#8B4513', isWin: false },
+  { label: 'Aproape!', emoji: '😅', color: '#A0522D', isWin: false },
+  { label: 'Noroc data viitoare', emoji: '🍀', color: '#8B4513', isWin: false },
   { label: 'Extra topping', emoji: '🍓', color: '#E8C392', isWin: true },
 ];
 
