@@ -17,7 +17,7 @@ const WheelSection = () => {
             Roata Norocului
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Încearcă-ți norocul! Poți câștiga clătite gratis sau topping-uri extra.
+            Încearcă-ți norocul! Poți câștiga clătite gratis sau la jumătate de preț.
           </p>
         </motion.div>
 
