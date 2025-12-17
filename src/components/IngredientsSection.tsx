@@ -26,19 +26,29 @@ const IngredientCard = ({ emoji, title, description, delay = 0 }: IngredientCard
 const IngredientsSection = () => {
   const ingredients = [
     {
-      emoji: '🥞',
-      title: 'Clătite Artizanale',
-      description: 'Rețetă tradițională, aluat proaspăt, gătite pe loc.',
+      emoji: '🥛',
+      title: 'Lapte',
+      description: 'Lapte proaspăt pentru un aluat cremos.',
     },
     {
-      emoji: '🥛',
-      title: 'Lapte Proaspăt',
-      description: 'Lapte de la ferme locale, pentru un gust autentic.',
+      emoji: '🧈',
+      title: 'Unt',
+      description: 'Unt de calitate pentru aromă și textură.',
+    },
+    {
+      emoji: '🌾',
+      title: 'Făină',
+      description: 'Făină albă, cernută cu grijă.',
     },
     {
       emoji: '🥚',
-      title: 'Ouă de Țară',
-      description: 'Ouă proaspete, de la găini crescute natural.',
+      title: 'Ouă',
+      description: 'Ouă proaspete de la țară.',
+    },
+    {
+      emoji: '✨',
+      title: 'Vanilie',
+      description: 'Esență de vanilie pentru un parfum delicios.',
     },
   ];
 
@@ -60,7 +70,7 @@ const IngredientsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {ingredients.map((ingredient, index) => (
             <IngredientCard
               key={ingredient.title}

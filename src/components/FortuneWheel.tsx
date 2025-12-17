@@ -24,6 +24,7 @@ const segments: WheelSegment[] = [
 ];
 
 const STORAGE_KEY = 'clatite_wheel_played';
+const RESULT_KEY = 'clatite_wheel_result';
 
 const FortuneWheel = () => {
   const [rotation, setRotation] = useState(0);
@@ -31,11 +32,16 @@ const FortuneWheel = () => {
   const [hasPlayed, setHasPlayed] = useState(false);
   const [result, setResult] = useState<WheelSegment | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [savedResult, setSavedResult] = useState<WheelSegment | null>(null);
 
   useEffect(() => {
     const played = localStorage.getItem(STORAGE_KEY);
+    const savedResultStr = localStorage.getItem(RESULT_KEY);
     if (played) {
       setHasPlayed(true);
+      if (savedResultStr) {
+        setSavedResult(JSON.parse(savedResultStr));
+      }
     }
   }, []);
 
@@ -54,10 +60,13 @@ const FortuneWheel = () => {
 
     setTimeout(() => {
       setIsSpinning(false);
-      setResult(segments[randomSegment]);
+      const wonSegment = segments[randomSegment];
+      setResult(wonSegment);
+      setSavedResult(wonSegment);
       setShowResult(true);
       setHasPlayed(true);
       localStorage.setItem(STORAGE_KEY, 'true');
+      localStorage.setItem(RESULT_KEY, JSON.stringify(wonSegment));
     }, 4000);
   }, [isSpinning, hasPlayed]);
 
@@ -190,10 +199,22 @@ const FortuneWheel = () => {
         )}
       </AnimatePresence>
 
-      {hasPlayed && !showResult && (
-        <p className="text-muted-foreground text-center text-sm">
-          Ai participat deja la tombolă. Te așteptăm la stand! 🥞
-        </p>
+      {hasPlayed && !showResult && savedResult && (
+        <div className="flex flex-col items-center gap-3">
+          <Button
+            onClick={() => {
+              setResult(savedResult);
+              setShowResult(true);
+            }}
+            variant="outline"
+            className="border-chocolate text-chocolate hover:bg-chocolate hover:text-cream"
+          >
+            🎁 Vezi ce ai câștigat
+          </Button>
+          <p className="text-muted-foreground text-center text-sm">
+            Ai participat deja la tombolă. Te așteptăm la stand! 🥞
+          </p>
+        </div>
       )}
     </div>
   );
