@@ -43,7 +43,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Clătite gătite homemade{' '}
+            Clătite homemade{' '}
             <span className="text-strawberry">cu dragoste</span>
           </motion.h1>
           
