@@ -12,15 +12,15 @@ interface WheelSegment {
 // 20% clătită gratis (2/10), 25% jumătate de preț (2.5/10 ≈ 3/10)
 const segments: WheelSegment[] = [
   { label: 'Clătită gratis', emoji: '🎉', color: '#DC143C', isWin: true },
-  { label: 'Mai încearcă', emoji: '🔁', color: '#D4A574', isWin: false },
+  { label: 'Mai încearcă', emoji: '😢', color: '#D4A574', isWin: false },
   { label: 'Jumătate de preț', emoji: '💰', color: '#FFD700', isWin: true },
-  { label: 'Poate data viitoare', emoji: '😄', color: '#8B4513', isWin: false },
+  { label: 'Poate data viitoare', emoji: '😞', color: '#8B4513', isWin: false },
   { label: 'Jumătate de preț', emoji: '💰', color: '#FFD700', isWin: true },
-  { label: 'Aproape!', emoji: '😅', color: '#A0522D', isWin: false },
+  { label: 'Aproape!', emoji: '😔', color: '#A0522D', isWin: false },
   { label: 'Clătită gratis', emoji: '🎉', color: '#DC143C', isWin: true },
-  { label: 'Mulțumim!', emoji: '❤️', color: '#C41E3A', isWin: false },
+  { label: 'Mulțumim!', emoji: '🥲', color: '#C41E3A', isWin: false },
   { label: 'Jumătate de preț', emoji: '💰', color: '#FFD700', isWin: true },
-  { label: 'Noroc data viitoare', emoji: '🍀', color: '#8B4513', isWin: false },
+  { label: 'Noroc data viitoare', emoji: '😿', color: '#8B4513', isWin: false },
 ];
 
 const STORAGE_KEY = 'clatite_wheel_played';
