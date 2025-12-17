@@ -26,19 +26,19 @@ const IngredientCard = ({ emoji, title, description, delay = 0 }: IngredientCard
 const IngredientsSection = () => {
   const ingredients = [
     {
-      emoji: '🍓',
-      title: 'Gem de Căpșuni',
-      description: 'Gem din cele mai proaspete căpșuni de pe piață, preparat cu dragoste.',
-    },
-    {
-      emoji: '🍫',
-      title: 'Nutella',
-      description: 'Nutella cremoasă, din belșug, pentru o explozie de ciocolată.',
-    },
-    {
       emoji: '🥞',
       title: 'Clătite Artizanale',
       description: 'Rețetă tradițională, aluat proaspăt, gătite pe loc.',
+    },
+    {
+      emoji: '🥛',
+      title: 'Lapte Proaspăt',
+      description: 'Lapte de la ferme locale, pentru un gust autentic.',
+    },
+    {
+      emoji: '🥚',
+      title: 'Ouă de Țară',
+      description: 'Ouă proaspete, de la găini crescute natural.',
     },
   ];
 

@@ -3,7 +3,7 @@ import { CheckCircle } from 'lucide-react';
 
 const TrustSection = () => {
   const trustPoints = [
-    'Gătite manual în bucătărie',
+    'Gătite ca acasă',
     'Fără compromisuri, fără ingrediente artificiale',
     'Ingrediente proaspete, alese cu grijă',
     'Preparate cu dragoste și atenție',
