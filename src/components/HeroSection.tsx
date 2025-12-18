@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Pancake3D from './Pancake3D';
 
 const HeroSection = () => {
   return (
@@ -27,14 +28,14 @@ const HeroSection = () => {
             Artizanal • Proaspăt • Delicios
           </motion.span>
           
-          {/* Large pancake emoji */}
+          {/* 3D Pancake Model */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-9xl md:text-[12rem] mb-8 animate-bounce-soft"
+            className="mb-6"
           >
-            🥞
+            <Pancake3D />
           </motion.div>
           
           <motion.h1 
