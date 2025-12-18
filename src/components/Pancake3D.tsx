@@ -9,7 +9,7 @@ function PancakeModel() {
     <Center>
       <primitive 
         object={scene} 
-        scale={1.2}
+        scale={0.4}
         rotation={[0.3, 0, 0]}
       />
     </Center>
@@ -20,7 +20,7 @@ const Pancake3D = () => {
   return (
     <div className="w-48 h-48 md:w-56 md:h-56 mx-auto">
       <Canvas
-        camera={{ position: [0, 3, 6], fov: 35 }}
+        camera={{ position: [0, 4, 10], fov: 30 }}
         style={{ background: 'transparent' }}
         gl={{ alpha: true, antialias: true }}
       >
