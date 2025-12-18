@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 interface WheelSegment {
   label: string;
@@ -23,6 +24,7 @@ const segments: WheelSegment[] = [
 
 const STORAGE_KEY = 'clatite_wheel_played';
 const RESULT_KEY = 'clatite_wheel_result';
+const SECRET_CODE = 'CLATITEBAZAR1';
 
 const FortuneWheel = () => {
   const [rotation, setRotation] = useState(0);
@@ -31,6 +33,9 @@ const FortuneWheel = () => {
   const [result, setResult] = useState<WheelSegment | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [savedResult, setSavedResult] = useState<WheelSegment | null>(null);
+  const [showCodeInput, setShowCodeInput] = useState(false);
+  const [codeValue, setCodeValue] = useState('');
+  const [codeError, setCodeError] = useState(false);
 
   useEffect(() => {
     const played = localStorage.getItem(STORAGE_KEY);
@@ -42,6 +47,22 @@ const FortuneWheel = () => {
       }
     }
   }, []);
+
+  const resetWheel = () => {
+    if (codeValue.toUpperCase() === SECRET_CODE) {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(RESULT_KEY);
+      setHasPlayed(false);
+      setRotation(0);
+      setResult(null);
+      setSavedResult(null);
+      setShowCodeInput(false);
+      setCodeValue('');
+      setCodeError(false);
+    } else {
+      setCodeError(true);
+    }
+  };
 
   const spinWheel = useCallback(() => {
     if (isSpinning || hasPlayed) return;
@@ -212,6 +233,58 @@ const FortuneWheel = () => {
           <p className="text-muted-foreground text-center text-sm">
             Ai participat deja la tombolă. Te așteptăm la stand! 🥞
           </p>
+          
+          {/* Secret code section */}
+          {!showCodeInput ? (
+            <Button
+              onClick={() => setShowCodeInput(true)}
+              variant="ghost"
+              size="sm"
+              className="text-muted-foreground hover:text-chocolate text-xs"
+            >
+              🔐 Ai un cod secret?
+            </Button>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="flex flex-col items-center gap-2 mt-2"
+            >
+              <Input
+                type="text"
+                placeholder="Introdu codul secret"
+                value={codeValue}
+                onChange={(e) => {
+                  setCodeValue(e.target.value);
+                  setCodeError(false);
+                }}
+                className={`w-48 text-center ${codeError ? 'border-strawberry' : 'border-chocolate/30'}`}
+              />
+              {codeError && (
+                <p className="text-strawberry text-xs">Cod incorect</p>
+              )}
+              <div className="flex gap-2">
+                <Button
+                  onClick={resetWheel}
+                  size="sm"
+                  className="bg-chocolate hover:bg-chocolate/90 text-cream"
+                >
+                  Verifică
+                </Button>
+                <Button
+                  onClick={() => {
+                    setShowCodeInput(false);
+                    setCodeValue('');
+                    setCodeError(false);
+                  }}
+                  size="sm"
+                  variant="ghost"
+                >
+                  Anulează
+                </Button>
+              </div>
+            </motion.div>
+          )}
         </div>
       )}
     </div>
